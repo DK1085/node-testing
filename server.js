@@ -47,6 +47,7 @@ app.get('/about', (req, res) => {
 app.get('/projects', (req, res) => {
     res.render('projects.hbs', {
         pageTitle: 'Projects Page',
+        welcomeMessage: "This is where i'll put my projects",
         currentYear: new Date().getFullYear()
     })
 });
