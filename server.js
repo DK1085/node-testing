@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 let app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -19,10 +21,10 @@ app.use((req, res, next) => { // next exists so you can tell express when your m
     next();
 })
 
-app.use((req, res, next) => {
-    res.render('maintainence.hbs')
+// app.use((req, res, next) => {
+//     res.render('maintainence.hbs') 
     
-})
+// })
 
 
 app.get('/', (req, res) => {
@@ -49,7 +51,9 @@ app.get('/bad', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('server is up on port 3000'); // second argument is optional.
+
+
+app.listen(port, () => {
+    console.log(`server is up on port ${port}`); // second argument is optional.
 });
 
